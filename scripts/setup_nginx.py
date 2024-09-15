@@ -15,3 +15,5 @@ def setup_nginx():
     os.symlink(AVAILABLE, ENABLED)
 
     subprocess.call(["sudo", "systemctl", "restart", "nginx"])
+
+setup_nginx()
