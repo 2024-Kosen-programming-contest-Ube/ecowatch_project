@@ -39,6 +39,8 @@ def download_backend():
     common.remove_exists(f"{common.BASE_PATH}/ecowatch_backend")
     shutil.unpack_archive(FILENAME, f"{common.BASE_PATH}/tmp")
     os.rename(f"{common.BASE_PATH}/tmp/ecowatch_backend-aarch64-unknown-linux-gnu", f"{common.BASE_PATH}/ecowatch_backend")
+    shutil.copy(f"{common.BASE_PATH}/ecowatch_backend/example.env", f"{common.BASE_PATH}/ecowatch_backend/.env")
+    os.chmod(f"{common.BASE_PATH}/ecowatch_backend/ecowatch_backend", 0o755)
     pass
 
 common.create_dir(f"{common.BASE_PATH}/tmp")
