@@ -16,8 +16,6 @@ def get_url_from_assets(assets):
         print(f"予期しないエラーが発生しました: {e}")
 
 def download(url):
-    common.remove_exists(FILENAME)
-
     res = requests.get(url, stream=True)
     if res.status_code == 200:
         with open(FILENAME, 'wb') as file:
@@ -33,15 +31,14 @@ def download_backend():
     url = get_url_from_assets(assets)
     print(url)
 
-    download(url)
-
+    common.remove_exists(FILENAME)
     common.remove_exists(f"{common.BASE_PATH}/tmp/ecowatch_backend-aarch64-unknown-linux-gnu")
     common.remove_exists(f"{common.BASE_PATH}/ecowatch_backend")
+    download(url)
     shutil.unpack_archive(FILENAME, f"{common.BASE_PATH}/tmp")
     os.rename(f"{common.BASE_PATH}/tmp/ecowatch_backend-aarch64-unknown-linux-gnu", f"{common.BASE_PATH}/ecowatch_backend")
     shutil.copy(f"{common.BASE_PATH}/ecowatch_backend/example.env", f"{common.BASE_PATH}/ecowatch_backend/.env")
     os.chmod(f"{common.BASE_PATH}/ecowatch_backend/ecowatch_backend", 0o755)
-    pass
 
 common.create_dir(f"{common.BASE_PATH}/tmp")
 download_backend()
