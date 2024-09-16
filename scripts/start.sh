@@ -9,10 +9,17 @@ fi
   cd ./ecowatch_backend
   ./ecowatch_backend
 } &
-PID=$!
-echo ${PID}
+PID1=$!
+echo ${PID1}
 
-trap 'kill ${PID}' 2 3 15
+{
+  cd ./Device_GetInfoPy
+  ./.venv/bin/python main.py
+} &
+PID2=$!
+echo ${PID2}
+
+trap 'kill ${PID1};kill ${PID2}' 2 3 15
 
 # 終了待ち
-wait ${PID}
+wait
