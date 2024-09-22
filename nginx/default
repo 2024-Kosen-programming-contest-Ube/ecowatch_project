@@ -15,14 +15,12 @@ server {
     }
 
     location /teacher {
-        rewrite /teacher/(.*) /$1  break;
         root   /var/www/html/ecowatch_teacher;
         index  index.html index.htm;
         try_files $uri /index.html;
     }
 
     location /student {
-        rewrite /student/(.*) /$1  break;
         root   /var/www/html/ecowatch_student;
         index  index.html index.htm;
         try_files $uri /index.html;
