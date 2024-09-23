@@ -23,6 +23,6 @@ async def getinfo():
         "humidity": random.randint(50, 100),
         "isPeople": True,
         "lux": 77.4,
-        "useairconditionaer": True,
+        "useairconditioner": True,
         "airconditionaer_time": "2024-06-30-22:20:50"
     }
