@@ -25,5 +25,5 @@ async def getinfo():
         "lux": 77.4,
         "test": "f",
         "useairconditioner": True,
-        "airconditionaer_time": "2024-06-30-22:20:50"
+        "airconditioner_time": "2024-06-30-22:20:50"
     }
