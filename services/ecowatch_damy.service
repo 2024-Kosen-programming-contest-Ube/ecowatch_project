@@ -1,0 +1,9 @@
+[Unit]
+Description = ecowatch service
+
+[Service]
+ExecStart   = sh /home/procon/ecowatch_project/scripts/start_with_damy.sh
+Type        = simple
+
+[Install]
+WantedBy    = default.target

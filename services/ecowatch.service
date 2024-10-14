@@ -1,0 +1,9 @@
+[Unit]
+Description = ecowatch service
+
+[Service]
+ExecStart   = sh /home/procon/ecowatch_project/scripts/start.sh
+Type        = simple
+
+[Install]
+WantedBy    = default.target

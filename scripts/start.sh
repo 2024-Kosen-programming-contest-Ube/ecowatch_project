@@ -5,6 +5,9 @@ if [ `id -u` -ne 0 ]; then
   exit 1
 fi
 
+CURRENT=$(cd $(dirname $0);pwd)
+cd ${CURRENT}/..
+
 {
   cd ./Device_GetInfoPy
   ./.venv/bin/python main.py
