@@ -6,3 +6,6 @@ cd ecowatch_project
 sh ./scripts/setup.sh
 sh ./scripts/start.sh
 ```
+
+start.shを実行するかわりにsetup_service.pyを実行することでデーモンとして実行可能
+引数にdamyを指定することでダミーのAPIを使用可能
